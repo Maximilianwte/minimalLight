@@ -1,0 +1,32 @@
+html {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  font-size: 4vw;
+  background-color: #222222;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightLogo {
+  height: 7em;
+  width: 7em;
+}
+
+.lightLogo svg {
+  height: 100%;
+  width: 100%;
+  fill: #ffffffa1;
+}
+
+.text {
+  font-size: 1.1em;
+  width: 70%;
+  text-align: center;
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  transform: translateX(-200%);
+}
