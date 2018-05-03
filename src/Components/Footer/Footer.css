@@ -1,0 +1,142 @@
+.fullPage {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #ebd7d7;
+    text-align: center;
+    overflow-y: scroll;
+    font-size: 0.8em;
+}
+
+.fullPage a {
+  text-decoration: none;
+  color: white;
+  font-size: .8em;
+}
+
+.fullPage p {
+  text-transform: initial;
+}
+
+.footer-container {
+    background-color: white;
+    padding-bottom: 0.5em;
+    color: #3d3d3d;
+  }
+  
+  .Name h3 {
+    text-transform: uppercase;
+    font-size: 2.4em;
+    letter-spacing: -0.08em;
+    margin: -0.5em 0 0 0;
+  }
+  
+  .City h4 {
+    font-size: 0.8em;
+    margin: 0 0 2em 0;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+  }
+  
+  .Imprint {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 0.8em;
+    overflow-y: scroll;
+  }
+  
+  .Privacy {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .Privacy p {
+    font-size: 0.55em;
+  }
+  
+  .Social {
+      display: flex;
+      justify-content: space-around;
+      width: 8em;
+      margin: 0 auto;
+      padding: 0.4em 0;
+    }
+    
+    .Social svg {
+      width: 1.75em;
+      fill: #222222;
+      transition: .8s;
+    }
+    
+    .Social#Facebook svg {
+      fill: #3b5998;
+    }
+    
+    .Social#Facebook svg:hover {
+      fill: #5a77b6;
+    }
+    
+    .Social#Instagram svg {
+      fill: #e95950;
+    }
+    
+    .Social#Instagram svg:hover {
+      fill: #cd486b;
+    }
+    
+    .Social#LinkedIn svg {
+      fill: #0077B5;
+    }
+    
+    .Social#LinkedIn svg:hover {
+      fill: rgb(59, 158, 211);
+    }
+    .Social#Github svg {
+      fill: #4078c0;
+    }
+    
+    .Social#Github svg:hover {
+      fill: #749fd8;
+    }
+    
+    /* Promotion Banner */
+  
+  .PromoBanner {
+    background-image: url("../../Assets/Woman.jpg");
+    background-size: cover;
+    background-position-y: 35%;
+    width: 70%;
+    height: 5.5em;
+    display: inline-block;
+    color: #ff0f73;
+    box-shadow: #3131313b 0px 5px 10px;
+    margin: 0 auto;
+    margin-top: .5em;
+    border-radius: .5em;
+    transition: 1s;
+    
+  }
+  
+  .PromoBanner h4 {
+    margin-top: 1.5em;
+    text-shadow: #3131313b 0px 5px 3px;
+  }
+  
+  .logoBig {
+    margin-top: 2em;
+  }
+  
+  .logoBig svg{
+    height: 5em;
+    width: 5em;
+    fill: #333333;
+  }
+  
+  .Credits {
+    margin-top: 1em;
+    font-size: .7em;
+  }
+  
+  .Credits a {
+    color: #222222af;
+  }
+  

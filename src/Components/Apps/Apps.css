@@ -1,0 +1,190 @@
+.wrapper {
+  background-color: #ebd7d7;
+}
+
+.Apps#first {
+  background-image: url("../../Assets/Second.jpg");
+  background-size: cover;
+}
+
+.Apps#second {
+  background-color: #ebd7d7;
+  color: #222222;
+  transform: translateY(-100%);
+}
+
+.textContainer {
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+}
+
+.textInlet {
+  width: 95%;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(10%);
+  margin-top: 1.5em;
+}
+
+.textContainer h2 {
+  font-size: 1.5em;
+}
+
+.textContainer h3 {
+  text-transform: initial;
+}
+
+.textContainer#weUse {
+  transform: translateY(5%);
+  opacity: 0;
+}
+
+.inletContainer#weUse {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+ 
+}
+
+#weUse h3 {
+  margin-top: 2.5em;
+}
+
+#weUse img{
+  width: 5em;
+}
+
+.PricingContainer {
+  width: 100%;
+  min-height: 5vh;
+  background-image: url("../../Assets/Pricing.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  margin-top: .5em;
+  transform: translateY(5%);
+  opacity: .5;
+}
+
+.contact p {
+  font-size: 0.6em;
+  color: #22222263;
+  margin-bottom: 2em;
+}
+
+/* Examples */
+
+.inletContainer#examples {
+  width: 100%;
+  transform: translateY(10%);
+  opacity: 0;
+}
+
+.AppList {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.AppBanner {
+  width: 70%;
+  border-radius: 0.2em;
+  cursor: pointer;
+  background-size: cover;
+  z-index: 2;
+}
+
+.AppBanner img {
+  height: 35vh;
+  border-radius: .15em;
+  pointer-events: none;
+  user-select: none;
+  box-shadow: #3131313b 0px 5px 10px;
+}
+
+.AppBanner#first {
+  margin-left: -3em;
+}
+
+.AppBanner#second {
+  margin-top: -3em;
+  margin-left: 0em;
+}
+
+.AppBanner#third {
+  margin-top: -3em;
+  margin-left: 3em;
+}
+
+
+.websiteExample {
+  cursor: pointer;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  height: 100vh;
+  width: 100vw;
+  z-index: 40;
+  transform: translateX(-100%);
+  transition: 1s transform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.websiteExample img {
+  width: 90vw;
+  box-shadow: #31313175 0px 10px 10px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.switchExample {
+  transform: translateX(0%);
+}
+
+.websiteExample#first {
+  background: radial-gradient(circle at top left, #ff498c 25%, #ff1567 100%);
+}
+
+.websiteExample#second {
+  background: radial-gradient(circle at top left, #292a3e 25%, #080a0f 150%);
+}
+
+.websiteExample#third {
+  background: radial-gradient(circle at top left, #fcf6e6 25%, #e5f0ec 100%);
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+  .inletContainer#weUse {
+    flex-direction: column;
+  }
+  .AppBanner {
+    height: 25vh;
+    max-width: 90vw;
+    margin: 0 auto !important;
+    margin-top: -.5em !important; 
+  }
+
+  .AppBanner img {
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 681px) {
+ 
+}
+
+@media only screen and (min-width: 681px) and (max-width: 1024px) {
+  #weUse h3 {
+    margin-top: 1em;
+  }
+}

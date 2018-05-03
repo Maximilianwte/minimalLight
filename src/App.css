@@ -1,13 +1,55 @@
 html {
+  font-family: "Open Sans", sans-serif;
+  background-color: #222222;
+  font-size: 4vw;
+}
+
+.App {
   overflow: hidden;
+}
+
+.Context#first {
+  background-color: #222222;
+}
+
+.Context#second {
+  background-image: url("./Assets/BgFirst.jpg");
+  background-size: cover;
+  transform: translateY(100%);
+}
+
+.fullContainer {
+  position: fixed;
+  top: 0%;
+  left: 0%;
   height: 100vh;
   width: 100vw;
-  font-size: 4vw;
-  background-color: #222222;
   color: white;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+
+p {
+  font-size: 0.9em;
+  letter-spacing: -0.05em;
 }
 
 .lightLogo {
@@ -23,10 +65,152 @@ html {
 
 .text {
   font-size: 1.1em;
-  width: 70%;
+  width: 85%;
+  margin: 0 auto;
   text-align: center;
+  opacity: 0;
+  margin-top: 2em;
+}
+.textSolo {
+  margin-top: -2em;
+}
+
+.scroll {
+  width:1.2em;
+  font-size: 0.7em;
+  position: fixed;
+  bottom: 2%;
+  right: 0%;
+  color: #ffffff62;
+  writing-mode: vertical-lr;
+  transform: rotateZ(180deg);
+  text-transform: lowercase;
+}
+
+.scroll h6 {
+  width: 1.2em;
+  margin: 0;
+}
+
+.button a, button {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 0.2em 0.8em 0.3em 0.8em;
+  text-transform: lowercase;
+  border: 0.1em solid #ffffff;
+  background: none;
+  border-radius: 2em;
+  transition: 0.5s;
+}
+
+button {
   position: absolute;
-  top: 25%;
-  left: 15%;
-  transform: translateX(-200%);
+  bottom: 10%;
+  right: 10%;
+  font-size: .8em;
+  cursor: pointer;
+  transition: 2s;
+}
+button:hover {
+  color: #ff2466;
+  border: 0.1em solid #ff2466;
+}
+
+.button a:hover{
+  color: #fdddae;
+  border: 0.1em solid #fdddae;
+}
+
+.button#apps {
+  transform: translateY(50%);
+  opacity: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 3%;
+  left: 3%;
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer a {
+  text-decoration: none;
+  font-size: 0.35em;
+  color: #ffffffad;
+  text-transform: lowercase;
+  transition: 0.5s;
+}
+
+.footer a:hover {
+  color: #ffffff;
+}
+
+/* Menu */
+
+.menuIcon {
+  display: inline-block;
+  cursor: pointer;
+  width: 5% !important;
+  position: fixed;
+  top: 3%;
+  left: 5%;
+  z-index: 10;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: rgb(255, 255, 255);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 681px) {
+  html {
+    font-size: 6.5vw;
+  }
+  .footer {
+    width: 50%;
+  }
+  .footer a{
+    font-size: .6em;
+  }
+}
+
+@media only screen and (min-width: 681px) and (max-width: 1024px) {
+  html {
+    font-size: 5vw;
+  }
+  .footer {
+    width: 40%;
+  }
+  .footer a{
+    font-size: .5em;
+  }
+}
+
+@media only screen and (min-width: 1921px) {
+  .fullContainer#second {
+    background-image: url("./Assets/FirstBgBig.jpg");
+  }
 }

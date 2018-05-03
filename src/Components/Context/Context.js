@@ -1,15 +1,23 @@
 import React, { Component } from "react";
 import { TweenLite, TimelineLite, css } from "gsap";
-import anime from "animejs";
 import $ from "jquery";
-// DIE IDEE: BAUE MIT GREENSOCK EINE TIMELINE. DIE WIRD IMMER BEI MAUSROLL GETRIGGERT.
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import ReactGA from "react-ga";
+
+ReactGA.pageview("/");
 
 class Context extends Component {
   componentDidMount() {
     // Initialize the timeline.
     var docTimeline = new TimelineLite({ paused: true });
-    docTimeline.add(TweenLite.to(".lightLogo", 1, { y: "200%" }));
-    docTimeline.add(TweenLite.to(".text", 1, { x: "0%" }));
+    docTimeline
+      .add(TweenLite.to(".fullContainer#first", 1, { y: "200%" }))
+      .to(".fullContainer#second", 0.5, { y: "0%" })
+      .to(".text#first", 0.5, { y: "-5%", opacity: "1" })
+      .to(".button#apps", 0.6, { y: "0%", opacity: "1" })
+      .addPause()
+      .reversed();
 
     var runOnce = 0;
     $(window).bind("mousewheel DOMMouseScroll", function(event) {
@@ -22,7 +30,6 @@ class Context extends Component {
           docTimeline.play();
           runOnce = 1;
           setTimeout(function() {
-            docTimeline.pause();
             runOnce = 0;
           }, 1000);
         } else {
@@ -30,33 +37,33 @@ class Context extends Component {
           docTimeline.reverse();
           runOnce = 1;
           setTimeout(function() {
-            docTimeline.pause();
             runOnce = 0;
           }, 1000);
         }
       }
-
-      // using the event helper
+      ReactGA.event({
+        category: "Behaviour Context",
+        action: "Scrolled"
+      });
     });
   }
 
   render() {
-    /* var granimInstance = new Granim({
-        element: '#granimCanvas',
-        name: 'granim',
-        opacity: [1, 1],
-        states : {
-            "default-state": {
-                gradients: [
-                    ['#834D9B', '#D04ED6'],
-                    ['#1CD8D2', '#93EDC7']
-                ]
-            }
-        }
-     }); */
     return (
       <div className="wrapper">
-        <div className="fullContainer" id="granimCanvas">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Light - Webexperiences aus Hamburg.</title>
+          <meta
+            name="description"
+            content="Awesome Web Apps, Voice and Chat Bots for your Company built exactly for your needs by Light from Hamburg, Germany."
+          />
+          <meta
+            name="keywords"
+            content="Light, Lightstrategies, Hamburg, Germany, Website, Design, Apps, Web App, Deutschland, Bots, Alexa Bot, Messenger Bot, Google Home Bot, Agency, Agentur, beauftragen, Schleswig-Holstein"
+          />
+        </Helmet>
+        <div className="fullContainer Context" id="first">
           <div className="lightLogo">
             <svg viewBox="0 0 1200 1200.0001">
               <defs />
@@ -67,8 +74,17 @@ class Context extends Component {
               />
             </svg>
           </div>
-          <div className="text">
-            <h2>Creating Better Web Experiences.</h2>
+          <div className="footer">
+            <Link to="/impressum">Impressum</Link>
+            <Link to="/privatsphäre">Privatsphäre</Link>
+          </div>
+        </div>
+        <div className="fullContainer Context" id="second">
+          <div className="text" id="first">
+            <h3>Ihre Webapps sind bei uns in guten Händen.</h3>
+          </div>
+          <div className="button" id="apps">
+            <Link to="/apps">Webapps</Link>
           </div>
         </div>
       </div>
