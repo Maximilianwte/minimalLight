@@ -9,10 +9,6 @@
     font-size: 1.3em;
     text-transform: capitalize;
   }
-
-  .socialPersonal {
-      background-color: white;
-  }
   
   .textTop {
     grid-column: span 12;
@@ -134,10 +130,16 @@
    .container#contact {
        display: inline-block;
    }
+    .socialPersonal {
+      background-color: white;
+  }
   }
   
   @media only screen and (min-width: 681px) and (max-width: 1024px) {
     .container#contact {
         display: inline-block;
     }
+    .socialPersonal {
+      background-color: white;
+  }
   }

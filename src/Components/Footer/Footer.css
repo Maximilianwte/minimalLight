@@ -7,6 +7,14 @@
     font-size: 0.8em;
 }
 
+.Imprint {
+  margin-top: 2em;
+}
+
+.imprint a, .Imprint a{
+  color: #222222 !important;
+}
+
 .fullPage a {
   text-decoration: none;
   color: white;

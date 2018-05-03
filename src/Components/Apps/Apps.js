@@ -11,7 +11,7 @@ ReactGA.pageview("/apps");
 class Apps extends Component {
   constructor(props) {
     super(props);
-    this.jumpTo = this.jumpTo.bind(this);
+    /* this.jumpTo = this.jumpTo.bind(this); */
   }
   switchImage = e => {
     if (e.target.id === "first") {
@@ -22,9 +22,9 @@ class Apps extends Component {
       $(".websiteExample#third").toggleClass("switchExample");
     }
   };
-  jumpTo = () => {
+  /* jumpTo = () => {
     this.docTimeline.play(5);
-  };
+  }; */
   componentDidMount() {
     // Initialize the timeline.
     var docTimeline = new TimelineLite({ paused: true });
@@ -65,9 +65,9 @@ class Apps extends Component {
       .to(".textContainer#examples", 0, { display: "none" })
       .to(".textContainer#pricing", 0, { display: "flex" })
       .to(".PricingContainer", 0.5, { y: "0%", opacity: "1" });
-
+/* 
     // While dev testing!
-    docTimeline.play(6);
+    docTimeline.play(7); */
 
     var runOnce = 0;
     $(window).bind("mousewheel DOMMouseScroll", function(event) {
@@ -96,6 +96,36 @@ class Apps extends Component {
         action: "Scrolled"
       });
     });
+
+    $(function() {
+      $("html").swipe({
+        //Generic swipe handler for all directions
+        swipe: function(
+          event,
+          direction
+        ) {
+          if (runOnce === 0) {
+            if (direction === "down") {
+              docTimeline.play();
+              runOnce = 1;
+              setTimeout(function() {
+                runOnce = 0;
+              }, 1000);
+            } else if (direction === "up") {
+              docTimeline.reverse();
+              runOnce = 1;
+              setTimeout(function() {
+                runOnce = 0;
+              }, 1000);
+            }
+          }
+          ReactGA.event({
+            category: "Behaviour Apps",
+            action: "Touch Scrolled"
+          });
+        }
+      });
+    });
   }
 
   render() {
@@ -103,19 +133,19 @@ class Apps extends Component {
       <div className="wrapper">
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Light - Webexperiences aus Hamburg.</title>
+          <title>Apps | Light - Webexperiences aus Hamburg.</title>
           <meta
             name="description"
-            content="Awesome Web Apps, Voice and Chat Bots for your Company built exactly for your needs by Light from Hamburg, Germany."
+            content="Großartige Webapps maßgeschneidert für deine Ansprüche von Light aus Hamburg."
           />
           <meta
             name="keywords"
-            content="Light, Lightstrategies, Hamburg, Germany, Website, Design, Apps, Web App, Deutschland, Bots, Alexa Bot, Messenger Bot, Google Home Bot, Agency, Agentur, beauftragen, Schleswig-Holstein"
+            content="Light, Lightstrategies, Hamburg, Germany,Deutsch, Deutschland,de, Website, Design, Apps, Web App, Deutschland, Bots, Alexa Bot, Messenger Bot, Google Home Bot, Agency, Agentur, beauftragen, Schleswig-Holstein"
           />
         </Helmet>
         <div className="fullContainer Apps" id="first">
           <div className="text textSolo" id="first">
-            <h3>Deine modernste Webapp beginnt jetzt.</h3>
+            <h3>Deine Webapp beginnt jetzt.</h3>
           </div>
         </div>
         <div className="fullContainer Apps" id="second">
@@ -132,7 +162,7 @@ class Apps extends Component {
                 Weniger Code bedeutet, weniger Bugs & Kosten und dafür 100%
                 Nutzerfreundlichkeit.
               </p>
-              <button onClick={this.jumpTo}>Zu den Beispielen</button>
+              {/* <button onClick={this.jumpTo}>Zu den Beispielen</button> */}
             </div>
           </div>
           <div className="textContainer" id="second">
@@ -206,7 +236,7 @@ class Apps extends Component {
           </div>
           <div className="textContainer" id="examples">
             <div className="inletContainer" id="examples">
-              <h5>Check Out Our App Examples.</h5>
+              <h5>Sieh dir einige unserer Beispiele an.</h5>
               <div className="AppList container">
                 <div
                   className="AppBanner"
@@ -250,16 +280,16 @@ class Apps extends Component {
             <div className="inletContainer" id="pricing">
               <div className="PricingContainer">
                 <div className="containerInlet">
-                  <h4>We guarantee you the best price possible!</h4>
+                  <h3>Unsere Preise sind unschlagbar!</h3>
                   <h5>
-                    If you find a better deal, we build your app for that price.
+                   Wenn Du einen besseren Deal findest, bauen wir deine App zu diesem Preis.
                   </h5>
                 </div>
               </div>
               <div className="contact">
-                <p>contact us for more information, request or discounts.</p>
+                <p>kontaktier uns für mehr informationen, anfragen oder angebote.</p>
                 <div className="button">
-                  <Link to="/contact">Contact</Link>
+                  <Link to="/kontakt">Kontakt</Link>
                 </div>
               </div>
             </div>

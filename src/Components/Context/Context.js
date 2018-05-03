@@ -4,6 +4,7 @@ import $ from "jquery";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
+import swipe from "jquery-touchswipe";
 
 ReactGA.pageview("/");
 
@@ -46,6 +47,36 @@ class Context extends Component {
         action: "Scrolled"
       });
     });
+
+    $(function() {
+      $("html").swipe({
+        //Generic swipe handler for all directions
+        swipe: function(
+          event,
+          direction
+        ) {
+          if (runOnce === 0) {
+            if (direction === "down") {
+              docTimeline.play();
+              runOnce = 1;
+              setTimeout(function() {
+                runOnce = 0;
+              }, 1000);
+            } else if (direction === "up") {
+              docTimeline.reverse();
+              runOnce = 1;
+              setTimeout(function() {
+                runOnce = 0;
+              }, 1000);
+            }
+          }
+          ReactGA.event({
+            category: "Behaviour Context",
+            action: "Touch Scrolled"
+          });
+        }
+      });
+    });
   }
 
   render() {
@@ -56,11 +87,11 @@ class Context extends Component {
           <title>Light - Webexperiences aus Hamburg.</title>
           <meta
             name="description"
-            content="Awesome Web Apps, Voice and Chat Bots for your Company built exactly for your needs by Light from Hamburg, Germany."
+            content="Großartige Webapps maßgeschneidert für deine Ansprüche von Light aus Hamburg."
           />
           <meta
             name="keywords"
-            content="Light, Lightstrategies, Hamburg, Germany, Website, Design, Apps, Web App, Deutschland, Bots, Alexa Bot, Messenger Bot, Google Home Bot, Agency, Agentur, beauftragen, Schleswig-Holstein"
+            content="Light, Lightstrategies, Hamburg, Germany,Deutsch, Deutschland,de, Website, Design, Apps, Web App, Deutschland, Bots, Alexa Bot, Messenger Bot, Google Home Bot, Agency, Agentur, beauftragen, Schleswig-Holstein"
           />
         </Helmet>
         <div className="fullContainer Context" id="first">

@@ -33,24 +33,10 @@ class Imprint extends Component {
             Images Provided By Pexels.com
           </a>
           <div>
-            Icons made by{" "}
             <a
               href="https://www.flaticon.com/authors/elegant-themes"
               title="Elegant Themes"
-            >
-              Elegant Themes
-            </a>{" "}
-            from{" "}
-            <a href="https://www.flaticon.com/" title="Flaticon">
-              www.flaticon.com
-            </a>{" "}
-            is licensed by{" "}
-            <a
-              href="http://creativecommons.org/licenses/by/3.0/"
-              title="Creative Commons BY 3.0"
-              target="_blank"
-            >
-              CC 3.0 BY
+            > Icons made by Flaticon.com
             </a>
           </div>
         </div>
