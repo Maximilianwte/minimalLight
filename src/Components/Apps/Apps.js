@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TweenLite, TimelineLite, css } from "gsap";
+import { TweenLite, TimelineMax, css } from "gsap";
 import $ from "jquery";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -11,6 +11,7 @@ ReactGA.pageview("/apps");
 class Apps extends Component {
   constructor(props) {
     super(props);
+
     /* this.jumpTo = this.jumpTo.bind(this); */
   }
   switchImage = e => {
@@ -27,7 +28,7 @@ class Apps extends Component {
   }; */
   componentDidMount() {
     // Initialize the timeline.
-    var docTimeline = new TimelineLite({ paused: true });
+    var docTimeline = new TimelineMax({ paused: true });
     docTimeline
       .add(TweenLite.to(".text#first", 0.5, { y: "-5%", opacity: "1" }))
       .addPause()
@@ -35,22 +36,38 @@ class Apps extends Component {
       .to(".Apps#second", 0.5, { y: "0%" })
       .to(".textContainer#zero", 0, { display: "flex" })
       .to(".textInlet#zero", 0.5, { y: "0%", opacity: "1" })
+      .to(".ball1#firstBall", 0.25, { scale: "2.5" })
+      .to(".ball1#secondBall", 0.3, { scale: "2.5" })
       .addPause()
+      .to(".ball1#secondBall", 0.5, { scale: "1" })
+      .to(".ball1#firstBall", 0.5, { scale: "1" })
       .to(".textInlet#zero", 0.5, { y: "10%", opacity: "0" })
       .to(".textContainer#zero", 0, { display: "none" })
       .to(".textContainer#first", 0, { display: "flex" })
       .to(".textInlet#first", 0.5, { y: "0%", opacity: "1" })
+      .to(".ball2#firstBall", 0.2, { scale: "2.9" })
+      .to(".ball2#secondBall", 0.35, { scale: "2.8" })
       .addPause()
+      .to(".ball2#secondBall", 0.5, { scale: "1" })
+      .to(".ball2#firstBall", 0.5, { scale: "1" })
       .to(".textInlet#first", 0.5, { y: "10%", opacity: "0" })
       .to(".textContainer#first", 0, { display: "none" })
       .to(".textContainer#second", 0, { display: "flex" })
       .to(".textInlet#second", 0.5, { y: "0%", opacity: "1" })
+      .to(".ball3#firstBall", 0.25, { scale: "3.7" })
+      .to(".ball3#secondBall", 0.3, { scale: "3.5" })
       .addPause()
+      .to(".ball3#secondBall", 0.25, { scale: "1" })
+      .to(".ball3#firstBall", 0.4, { scale: "1" })
       .to(".textInlet#second", 0.5, { y: "10%", opacity: "0" })
       .to(".textContainer#second", 0, { display: "none" })
       .to(".textContainer#third", 0, { display: "flex" })
       .to(".textInlet#third", 0.5, { y: "0%", opacity: "1" })
+      .to(".ball4#firstBall", 0.35, { scale: "4.5" })
+      .to(".ball4#secondBall", 0.3, { scale: "4.2" })
       .addPause()
+      .to(".ball4#secondBall", 0.3, { scale: "1" })
+      .to(".ball4#firstBall", 0.2, { scale: "1" })
       .to(".textInlet#third", 0.5, { y: "10%", opacity: "0" })
       .to(".textContainer#third", 0, { display: "none" })
       .to(".textContainer#weUse", 0, { display: "initial" })
@@ -65,9 +82,9 @@ class Apps extends Component {
       .to(".textContainer#examples", 0, { display: "none" })
       .to(".textContainer#pricing", 0, { display: "flex" })
       .to(".PricingContainer", 0.5, { y: "0%", opacity: "1" });
-/* 
-    // While dev testing!
-    docTimeline.play(7); */
+
+ /*    // While dev testing!
+    docTimeline.play(10); */
 
     var runOnce = 0;
     $(window).bind("mousewheel DOMMouseScroll", function(event) {
@@ -99,19 +116,17 @@ class Apps extends Component {
 
     $(function() {
       $("html").swipe({
+        allowPageScroll: "auto",
         //Generic swipe handler for all directions
-        swipe: function(
-          event,
-          direction
-        ) {
+        swipe: function(event, direction) {
           if (runOnce === 0) {
-            if (direction === "down") {
+            if (direction === "up") {
               docTimeline.play();
               runOnce = 1;
               setTimeout(function() {
                 runOnce = 0;
               }, 1000);
-            } else if (direction === "up") {
+            } else if (direction === "down") {
               docTimeline.reverse();
               runOnce = 1;
               setTimeout(function() {
@@ -127,7 +142,6 @@ class Apps extends Component {
       });
     });
   }
-
   render() {
     return (
       <div className="wrapper">
@@ -153,6 +167,54 @@ class Apps extends Component {
             <div className="textInlet" id="zero">
               <h3>Wieso wir an Apps im Browser glauben.</h3>
             </div>
+            <div className="ball">
+              <div className="ball1" id="firstBall">
+                <svg
+                  data-name="Ebene 2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="290.301"
+                  height="290.301"
+                >
+                  <defs>
+                    <linearGradient
+                      id="b"
+                      x1="42.514"
+                      y1="42.514"
+                      x2="247.787"
+                      y2="247.787"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0" stopColor="#ff3f75" />
+                      <stop offset="1" stopColor="#c03" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="145.15" cy="145.15" r="145.15" fill="url(#b)" />
+                </svg>
+              </div>
+              <div className="ball1" id="secondBall">
+                <svg
+                  data-name="Ebene 2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="290.301"
+                  height="290.301"
+                >
+                  <defs>
+                    <linearGradient
+                      id="b"
+                      x1="217.738"
+                      y1="19.425"
+                      x2="72.563"
+                      y2="270.875"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0" stopColor="#ff3f75" />
+                      <stop offset="1" stopColor="#c03" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="145.15" cy="145.15" r="145.15" fill="url(#b)" />
+                </svg>
+              </div>
+            </div>
           </div>
           <div className="textContainer" id="first">
             <div className="textInlet" id="first">
@@ -164,6 +226,54 @@ class Apps extends Component {
               </p>
               {/* <button onClick={this.jumpTo}>Zu den Beispielen</button> */}
             </div>
+            <div className="ball">
+              <div className="ball2" id="firstBall">
+                <svg
+                  data-name="Ebene 2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="290.301"
+                  height="290.301"
+                >
+                  <defs>
+                    <linearGradient
+                      id="a"
+                      x1="42.514"
+                      y1="42.514"
+                      x2="247.787"
+                      y2="247.787"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0" stopColor="#ff3f75" />
+                      <stop offset="1" stopColor="#c03" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="145.15" cy="145.15" r="145.15" fill="url(#a)" />
+                </svg>
+              </div>
+              <div className="ball2" id="secondBall">
+                <svg
+                  data-name="Ebene 2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="290.301"
+                  height="290.301"
+                >
+                  <defs>
+                    <linearGradient
+                      id="a"
+                      x1="217.738"
+                      y1="19.425"
+                      x2="72.563"
+                      y2="270.875"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0" stopColor="#ff3f75" />
+                      <stop offset="1" stopColor="#c03" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="145.15" cy="145.15" r="145.15" fill="url(#a)" />
+                </svg>
+              </div>
+            </div>
           </div>
           <div className="textContainer" id="second">
             <div className="textInlet" id="second">
@@ -174,6 +284,54 @@ class Apps extends Component {
                 blitzschnelle Apps zu bauen.
               </p>
             </div>
+            <div className="ball3">
+              <div className="ball3" id="firstBall">
+                <svg
+                  data-name="Ebene 2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="290.301"
+                  height="290.301"
+                >
+                  <defs>
+                    <linearGradient
+                      id="c"
+                      x1="42.514"
+                      y1="42.514"
+                      x2="247.787"
+                      y2="247.787"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0" stopColor="#ff3f75" />
+                      <stop offset="1" stopColor="#c03" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="145.15" cy="145.15" r="145.15" fill="url(#c)" />
+                </svg>
+              </div>
+              <div className="ball3" id="secondBall">
+                <svg
+                  data-name="Ebene 2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="290.301"
+                  height="290.301"
+                >
+                  <defs>
+                    <linearGradient
+                      id="c"
+                      x1="217.738"
+                      y1="19.425"
+                      x2="72.563"
+                      y2="270.875"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0" stopColor="#ff3f75" />
+                      <stop offset="1" stopColor="#c03" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="145.15" cy="145.15" r="145.15" fill="url(#c)" />
+                </svg>
+              </div>
+            </div>
           </div>
           <div className="textContainer" id="third">
             <div className="textInlet" id="third">
@@ -183,6 +341,54 @@ class Apps extends Component {
                 Wir statten ihre Webapp mit allen nötigen Tools für Google
                 Analytics aus. So wissen sie immer wie es um ihr Wachstum steht.
               </p>
+            </div>
+            <div className="ball4">
+              <div className="ball4" id="firstBall">
+                <svg
+                  data-name="Ebene 2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="290.301"
+                  height="290.301"
+                >
+                  <defs>
+                    <linearGradient
+                      id="d"
+                      x1="42.514"
+                      y1="42.514"
+                      x2="247.787"
+                      y2="247.787"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0" stopColor="#ff3f75" />
+                      <stop offset="1" stopColor="#c03" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="145.15" cy="145.15" r="145.15" fill="url(#d)" />
+                </svg>
+              </div>
+              <div className="ball4" id="secondBall">
+                <svg
+                  data-name="Ebene 2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="290.301"
+                  height="290.301"
+                >
+                  <defs>
+                    <linearGradient
+                      id="d"
+                      x1="217.738"
+                      y1="19.425"
+                      x2="72.563"
+                      y2="270.875"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop offset="0" stopColor="#ff3f75" />
+                      <stop offset="1" stopColor="#c03" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="145.15" cy="145.15" r="145.15" fill="url(#d)" />
+                </svg>
+              </div>
             </div>
           </div>
           <div className="textContainer" id="weUse">
@@ -281,13 +487,12 @@ class Apps extends Component {
               <div className="PricingContainer">
                 <div className="containerInlet">
                   <h3>Unsere Preise sind unschlagbar!</h3>
-                  <h5>
-                   Wenn Du einen besseren Deal findest, bauen wir deine App zu diesem Preis.
-                  </h5>
                 </div>
               </div>
               <div className="contact">
-                <p>kontaktier uns für mehr informationen, anfragen oder angebote.</p>
+                <p>
+                  kontaktier uns für mehr informationen, anfragen oder angebote.
+                </p>
                 <div className="button">
                   <Link to="/kontakt">Kontakt</Link>
                 </div>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Two from "two.js";
 
 import "./Footer.css";
 
@@ -36,7 +37,9 @@ class Imprint extends Component {
             <a
               href="https://www.flaticon.com/authors/elegant-themes"
               title="Elegant Themes"
-            > Icons made by Flaticon.com
+            >
+              {" "}
+              Icons made by Flaticon.com
             </a>
           </div>
         </div>

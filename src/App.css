@@ -13,9 +13,14 @@ html {
 }
 
 .Context#second {
-  background-image: url("./Assets/BgFirst.jpg");
+  background-image: url("./Assets/BgFirstSmall.jpg");
   background-size: cover;
   transform: translateY(100%);
+}
+
+.Apps#first {
+  background-image: url("./Assets/BgSecondSmall.jpg");
+  background-size: cover;
 }
 
 .fullContainer {
@@ -59,7 +64,7 @@ p {
 .lightLogo svg {
   height: 100%;
   width: 100%;
-  fill: #ffffffa1;
+  fill: rgba(255, 255, 255, 0.671);
 }
 
 .text {
@@ -75,12 +80,12 @@ p {
 }
 
 .scroll {
-  width:1.2em;
+  width: 1.2em;
   font-size: 0.7em;
   position: fixed;
   bottom: 2%;
-  right: 0%;
-  color: #ffffff62;
+  right: 0.5%;
+  color: rgba(255, 255, 255, 0.479);
   writing-mode: vertical-lr;
   transform: rotateZ(180deg);
   text-transform: lowercase;
@@ -91,7 +96,8 @@ p {
   margin: 0;
 }
 
-.button a, button {
+.button a,
+button {
   text-decoration: none;
   color: #ffffff;
   padding: 0.2em 0.8em 0.3em 0.8em;
@@ -106,7 +112,7 @@ button {
   position: absolute;
   bottom: 10%;
   right: 10%;
-  font-size: .8em;
+  font-size: 0.8em;
   cursor: pointer;
   transition: 2s;
 }
@@ -115,7 +121,7 @@ button:hover {
   border: 0.1em solid #ff2466;
 }
 
-.button a:hover{
+.button a:hover {
   color: #fdddae;
   border: 0.1em solid #fdddae;
 }
@@ -137,7 +143,7 @@ button:hover {
 .footer a {
   text-decoration: none;
   font-size: 0.35em;
-  color: #ffffffad;
+  color: rgba(255, 255, 255, 0.555);
   text-transform: lowercase;
   transition: 0.5s;
 }
@@ -191,8 +197,8 @@ button:hover {
   .footer {
     width: 50%;
   }
-  .footer a{
-    font-size: .6em;
+  .footer a {
+    font-size: 0.6em;
   }
 }
 
@@ -203,13 +209,57 @@ button:hover {
   .footer {
     width: 40%;
   }
-  .footer a{
-    font-size: .5em;
+  .footer a {
+    font-size: 0.5em;
+  }
+}
+
+@media only screen and (min-width: 681px) {
+  .Context#second {
+    background-image: url("./Assets/BgFirst.jpg");
+  }
+
+  .Apps#first {
+    background-image: url("./Assets/BgSecond.jpg");
+  }
+
+  body::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    content: url("./Assets/BgSecond.jpg");
   }
 }
 
 @media only screen and (min-width: 1921px) {
-  .fullContainer#second {
+  .Context#second {
     background-image: url("./Assets/FirstBgBig.jpg");
   }
+
+  .Apps#first {
+    background-image: url("./Assets/BgSecondBig.jpg");
+  }
+
+  body::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    content: url("./Assets/BgSecondBig.jpg");
+  }
+}
+
+/* Preload Background Images */
+
+body::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url("./Assets/Profile.png") url("./Assets/Pricing.jpg")
+    url("./Assets/BgSecondSmall.jpg");
 }

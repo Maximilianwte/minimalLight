@@ -6,7 +6,7 @@ import ReactGA from "react-ga";
 import "./Header.css";
 
 // Google Analytics Get Inizialized as high as possible.
-ReactGA.initialize("UA-109777178-1");
+ReactGA.initialize("UA-109777178-2");
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 class Header extends Component {

@@ -56,13 +56,13 @@ class Context extends Component {
           direction
         ) {
           if (runOnce === 0) {
-            if (direction === "down") {
+            if (direction === "up") {
               docTimeline.play();
               runOnce = 1;
               setTimeout(function() {
                 runOnce = 0;
               }, 1000);
-            } else if (direction === "up") {
+            } else if (direction === "down") {
               docTimeline.reverse();
               runOnce = 1;
               setTimeout(function() {
