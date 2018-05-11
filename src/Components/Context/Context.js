@@ -91,7 +91,7 @@ class Context extends Component {
           />
           <meta
             name="keywords"
-            content="Light, Lightstrategies, Hamburg, Germany,Deutsch, Deutschland,de, Website, Design, Apps, Web App, Deutschland, Bots, Alexa Bot, Messenger Bot, Google Home Bot, Agency, Agentur, beauftragen, Schleswig-Holstein"
+            content="Light, Lightstrategies, Hamburg, Germany,Deutsch, Deutschland,de, Website,Maximilian,Witte, Design, Apps, Web App, Deutschland, Bots, Alexa Bot, Messenger Bot, Google Home Bot, Agency, Agentur, beauftragen, Schleswig-Holstein"
           />
         </Helmet>
         <div className="fullContainer Context" id="first">
