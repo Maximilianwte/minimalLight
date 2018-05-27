@@ -148,3 +148,14 @@
     color: #222222af;
   }
   
+
+  .privacyText h3 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  .privacyText {
+    margin-bottom: 2em;
+    text-align: justify;
+  }

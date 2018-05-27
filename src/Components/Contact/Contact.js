@@ -134,7 +134,7 @@ class Contact extends Component {
           <input
             type="hidden"
             name="_next"
-            value="https://lightstrategies.com/contact"
+            value="https://de.lightstrategies.com/kontakt"
           />
         </form>
       </div>
