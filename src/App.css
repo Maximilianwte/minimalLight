@@ -13,14 +13,18 @@ html {
 }
 
 .Context#second {
-  background-image: url("./Assets/BgFirstSmall.jpg");
+  background-image: url("./Assets/BgFirst.jpg");
   background-size: cover;
   transform: translateY(100%);
+  background-position-x: 50%;
+  background-position-y: 40%;
 }
 
 .Apps#first {
-  background-image: url("./Assets/BgSecondSmall.jpg");
+  background-image: url("./Assets/BgSecond.jpg");
   background-size: cover;
+  background-position-x: 40%;
+  background-position-y: 30%;
 }
 
 .fullContainer {
@@ -214,44 +218,6 @@ button:hover {
   }
 }
 
-@media only screen and (min-width: 681px) {
-  .Context#second {
-    background-image: url("./Assets/BgFirst.jpg");
-  }
-
-  .Apps#first {
-    background-image: url("./Assets/BgSecond.jpg");
-  }
-
-  body::after {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    z-index: -1;
-    content: url("./Assets/BgSecond.jpg");
-  }
-}
-
-@media only screen and (min-width: 1921px) {
-  .Context#second {
-    background-image: url("./Assets/FirstBgBig.jpg");
-  }
-
-  .Apps#first {
-    background-image: url("./Assets/BgSecondBig.jpg");
-  }
-
-  body::after {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    z-index: -1;
-    content: url("./Assets/BgSecondBig.jpg");
-  }
-}
-
 /* Preload Background Images */
 
 body::after {
@@ -260,6 +226,6 @@ body::after {
   height: 0;
   overflow: hidden;
   z-index: -1;
-  content: url("./Assets/Profile.png") url("./Assets/Pricing.jpg")
-    url("./Assets/BgSecondSmall.jpg");
+  content: url("./Assets/MaximilianWitte.png") url("./Assets/Pricing.jpg")
+    url("./Assets/BgSecond.jpg");
 }

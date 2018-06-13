@@ -148,6 +148,10 @@
     color: #222222af;
   }
   
+.Privacy {
+  color: white;
+  text-align: center;
+}
 
   .privacyText h3 {
     margin-top: 1em;
